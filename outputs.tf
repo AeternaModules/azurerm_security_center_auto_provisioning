@@ -1,9 +1,9 @@
 output "security_center_auto_provisionings_id" {
   description = "Map of id values across all security_center_auto_provisionings, keyed the same as var.security_center_auto_provisionings"
-  value       = { for k, v in azurerm_security_center_auto_provisioning.security_center_auto_provisionings : k => v.id }
+  value       = { for k, v in azurerm_security_center_auto_provisioning.security_center_auto_provisionings : k => v.id if v.id != null && length(v.id) > 0 }
 }
 output "security_center_auto_provisionings_auto_provision" {
   description = "Map of auto_provision values across all security_center_auto_provisionings, keyed the same as var.security_center_auto_provisionings"
-  value       = { for k, v in azurerm_security_center_auto_provisioning.security_center_auto_provisionings : k => v.auto_provision }
+  value       = { for k, v in azurerm_security_center_auto_provisioning.security_center_auto_provisionings : k => v.auto_provision if v.auto_provision != null && length(v.auto_provision) > 0 }
 }
 
